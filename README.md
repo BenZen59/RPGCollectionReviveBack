@@ -1,3 +1,1 @@
-# BackRPGCollectionRevive
-# RPGCollectionReviveBack
 # RPGCollectionReviveBack
