@@ -12,17 +12,22 @@ public class RPG {
     private String name;
     @Column
     private String support;
+    @Column
     private String genre;
+    @Column
     private String developer;
+    @Column
+    private String imagerpg;
 
     public RPG(){
 
     }
-    public RPG(String name, String support, String genre, String developer) {
+    public RPG(String name, String support, String genre, String developer, String imagerpg) {
         this.name = name;
         this.support = support;
         this.genre = genre;
         this.developer = developer;
+        this.imagerpg = imagerpg;
     }
 
     public int getId() {
@@ -64,4 +69,13 @@ public class RPG {
     public void setDeveloper(String developer) {
         this.developer = developer;
     }
+
+    public String getImagerpg() {
+        return imagerpg;
+    }
+
+    public void setImagerpg(String imagerpg) {
+        this.imagerpg = imagerpg;
+    }
 }
+
