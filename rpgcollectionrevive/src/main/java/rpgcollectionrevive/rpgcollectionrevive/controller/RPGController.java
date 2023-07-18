@@ -7,7 +7,11 @@ import rpgcollectionrevive.rpgcollectionrevive.exception.ResourceNotFoundExcepti
 import rpgcollectionrevive.rpgcollectionrevive.model.RPG;
 import rpgcollectionrevive.rpgcollectionrevive.repository.RPGRepository;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "http://localhost:3000" )
 @RestController
@@ -15,11 +19,33 @@ import java.util.List;
 public class RPGController {
     @Autowired
     private RPGRepository rpgRepository;
-    //get all rpg
-    @GetMapping("/rpg")
-    public List<RPG> getAllRPG(){
-        return rpgRepository.findAll();
+
+    @GetMapping("/rpgname")
+    public List<RPG> getAllRPGname(){
+        List<RPG> rpgList = rpgRepository.findAll();
+        Collections.sort(rpgList, (rpg1, rpg2) -> rpg1.getName().compareTo(rpg2.getName()));
+        return rpgList;
     }
+    @GetMapping("/rpgsupport")
+    public List<RPG> getAllRPGsupport(){
+        List<RPG> rpgList = rpgRepository.findAll();
+        Collections.sort(rpgList, (rpg1, rpg2) -> rpg1.getSupport().compareTo(rpg2.getSupport()));
+        return rpgList;
+    }
+    @GetMapping("/rpgdeveloper")
+    public List<RPG> getAllRPGdeveloper(){
+        List<RPG> rpgList = rpgRepository.findAll();
+        Collections.sort(rpgList, (rpg1, rpg2) -> rpg1.getDeveloper().compareTo(rpg2.getDeveloper()));
+        return rpgList;
+    }
+    @GetMapping("/rpggenre")
+    public List<RPG> getAllRPGgenre(){
+        List<RPG> rpgList = rpgRepository.findAll();
+        Collections.sort(rpgList, (rpg1, rpg2) -> rpg1.getGenre().compareTo(rpg2.getGenre()));
+        return rpgList;
+    }
+
+
 
     // create rpg
     @PostMapping("/rpg")
