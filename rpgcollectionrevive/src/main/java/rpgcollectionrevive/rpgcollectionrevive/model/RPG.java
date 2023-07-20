@@ -18,6 +18,8 @@ public class RPG {
     private String developer;
     @Column
     private String imagerpg;
+    @Column
+    private String boxrpg;
 
     public RPG(){
 
@@ -76,6 +78,14 @@ public class RPG {
 
     public void setImagerpg(String imagerpg) {
         this.imagerpg = imagerpg;
+    }
+
+    public String getBoxrpg() {
+        return boxrpg;
+    }
+
+    public void setBoxrpg(String boxrpg) {
+        this.boxrpg = boxrpg;
     }
 }
 
