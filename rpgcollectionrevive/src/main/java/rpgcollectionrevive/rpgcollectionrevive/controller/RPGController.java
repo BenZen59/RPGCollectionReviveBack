@@ -266,4 +266,9 @@ public class RPGController {
         RPG updatedRPG = rpgRepository.save(rpg);
         return ResponseEntity.ok(updatedRPG);
     }
+
+    @DeleteMapping("/rpg/{id}")
+    public void deleteRPG(@PathVariable Integer id){
+        rpgRepository.deleteById(id);
+    }
 }
